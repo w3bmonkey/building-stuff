@@ -1,0 +1,30 @@
+#:schema https://github.com/joshmedeski/sesh/raw/main/sesh.schema.json
+
+blacklist = ["Downloads"]
+
+# windows = [...] is broken from inside tmux when automatic-rename-format
+# names the first window like the session (sesh targets `-t <session>` without
+# a colon and hits "index 1 in use"), so create windows via startup_command.
+[[session]]
+name = "snowit/pannello"
+path = "~/snowit/pannello/"
+startup_command = "tmux new-window -d -n herdr -c ~/snowit/pannello; tmux send-keys -t herdr 'herdr --session pannello' Enter; lazygit"
+
+[[session]]
+name = "snowit/pannello-server"
+path = "~/snowit/pannello/"
+startup_command = "bash ~/.config/sesh/scripts/pannello-dev-servers.sh"
+
+[[session]]
+name = "snowit/website"
+path = "~/snowit/website/"
+startup_command = "tmux new-window -d -n herdr -c ~/snowit/website/; tmux send-keys -t herdr 'herdr --session website' Enter; lazygit"
+
+[[session]]
+name = "snowit/website-server"
+path = "~/snowit/website/"
+startup_command = "bash ~/.config/sesh/scripts/website-dev-servers.sh"
+
+[[session]]
+name = "snowit/functions"
+path = "~/snowit/functions/"
