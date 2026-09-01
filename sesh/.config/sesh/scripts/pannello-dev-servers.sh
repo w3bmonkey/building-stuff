@@ -13,4 +13,4 @@
     sleep 0.5
   done
 ) &
-yarn start
+bun  start
